@@ -83,9 +83,13 @@ const spin = () => {
   for (let i= 0; i < COLS; i++) {
     const reelSymbols = [...symbols];
     for (let j = 0; j < ROWS; j++) {
-
+      const randomIndex = Math.floor(Math.random() * reelSymbols.length)
+      const selectedSymbol = reelSymbols[randomIndex]
+      reels[i].push(selectedSymbol);
+      reelsSymbols.splice(randomIndex, 1);
     }
   }
+  return reels;
 }
 
 spin();
@@ -96,3 +100,6 @@ const bet = getBet(balance, numberOfLines);
 
 
 // 4. Spin the slot machine
+
+
+// 5. Check if they won
